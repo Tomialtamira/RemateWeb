@@ -29,14 +29,15 @@ class horse {
       this.motherGrandfather = motherGrandfather;
       this.horseOffer = horseOffer;
     }
-
+  
   checkInfo() {
     let offer = this.horseOffer !== undefined ? this.horseOffer : initialOffer;
     return `Caballo : ${this.name}
        Fecha de Nacimiento: ${this.birthDate}
        ${this.father}  X  ${this.motherGrandfather}
-       $ ${offer}`;
+      Oferta Actual: $ ${offer}`;
   }
+  
 }
 
 class auction {  
@@ -104,8 +105,7 @@ class auction {
 
       const parsedOffer = parseFloat(offer.replace(',', '.'));
       if (!isNaN(parsedOffer)) {
-        let result = horse.horseOffer + parsedOffer;
-        console.log("Resultado: " + result);
+        let result = horse.horseOffer + parsedOffer;        
         horse.horseOffer = result;
       } else {
         alert("Ingreso inválido, por favor ingrese un número válido.");
@@ -127,6 +127,7 @@ function adminHorses() {
   let father = "";
   let motherGrandfather = "";   
   
+
   do {
       option = prompt(`Seleccione una opción:
       1. Agregar Caballo.
@@ -164,13 +165,13 @@ function adminHorses() {
               motherGrandfather = prompt("Ingrese nuevo abuelo materno");
               auctionInstance.modifyHorse(name, birthDate, father, motherGrandfather);
               break;
-          case "6":                
-              name = prompt("Ingrese el nombre del caballo para realizar la oferta");
-              alert(`La oferta actual es de: $ ${initialOffer}`);
-              offer = prompt("Ingrese la oferta");
-              auctionInstance.offerForHorse(name, offer);
-              break;
-             
+              case "6":
+                name = prompt("Ingrese el nombre del caballo para realizar la oferta");
+                let horseInfo = auctionInstance.checkHorsebyname(name);
+                alert(`${horseInfo}`);
+                offer = prompt("Ingrese la oferta");
+                auctionInstance.offerForHorse(name, offer);
+                break;
           case "7":
               break;
           default:
