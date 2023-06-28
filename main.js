@@ -1,5 +1,4 @@
-let initialNumber = 3000; // Precio base.
-
+/*let initialNumber = 3000; // Precio base.
 function calculate() {
   let input = prompt("Ingresar oferta:"); // Prompt al usuario para ingresar una oferta.
   let offer = parseFloat(input); 
@@ -18,5 +17,167 @@ function calculate() {
     calculate(); // Llamar a la funcion nuevamente para ingresar una nueva offer.
   }
 }
+calculate(); //Comenzar el calculo.*/
 
-calculate(); //Comenzar el calculo.
+let initialOffer = 3000; 
+
+class horse {
+    constructor(name, birthDate, father, motherGrandfather, horseOffer) {
+      this.name = name;
+      this.birthDate = birthDate;
+      this.father = father;      
+      this.motherGrandfather = motherGrandfather;
+      this.horseOffer = horseOffer;
+    }
+
+  checkInfo() {
+    let offer = this.horseOffer !== undefined ? this.horseOffer : initialOffer;
+    return `Caballo : ${this.name}
+       Fecha de Nacimiento: ${this.birthDate}
+       ${this.father}  X  ${this.motherGrandfather}
+       $ ${offer}`;
+  }
+}
+
+class auction {  
+  constructor(name) {
+      this.name = name;
+      this.horses = [];
+  }
+  
+  static initialOffer = 3000;
+
+  addHorse(horse) {
+    if (!horse.horseOffer) {
+      horse.horseOffer = auction.initialOffer;
+    }
+      this.horses.push(horse);
+  }
+
+  checkInfo() {
+      return`Remate: ${this.name}
+      Cant. caballos: ${this.horses.length}`;
+  }
+
+  checkHorses() {
+    let infoHorses = "";
+    this.horses.forEach(horse => {
+      infoHorses += `${horse.checkInfo()} \n`;
+    });
+    return infoHorses;
+  }
+
+  checkHorsebyname(name) {
+    let horse = this.horses.find(horse => horse.name === name);
+    if (horse) {
+        return horse.checkInfo();
+    } else {
+        return `No existe caballo con Nombre ${name}`;
+    }
+     
+  }
+
+  modifyHorse(name, birthDate, father, motherGrandfather) {
+    let horse = this.horses.find((horse) => horse.name === name);
+    if (horse) {
+      horse.name = newName;
+      horse.birthDate = birthDate;
+      horse.father = father;
+      horse.motherGrandfather = motherGrandfather;
+    } else {
+      console.log(`No existe caballo con Nombre ${name}`);
+    }
+  }
+  deleteHorse(name) {
+      let horse = this.horses.find(horse => horse.name === name);
+      let index = this.horses.indexOf(horse);
+      this.horses.splice(index, 1);
+  }
+
+  offerForHorse(name, offer) {
+    let horse = this.horses.find((horse) => horse.name === name);
+    if (horse) {
+      if (!offer) {
+        alert("Ingreso inválido, por favor ingrese un número válido.");
+        return;
+      }
+
+      const parsedOffer = parseFloat(offer.replace(',', '.'));
+      if (!isNaN(parsedOffer)) {
+        let result = horse.horseOffer + parsedOffer;
+        console.log("Resultado: " + result);
+        horse.horseOffer = result;
+      } else {
+        alert("Ingreso inválido, por favor ingrese un número válido.");
+        this.offerForHorse(name, prompt("Ingrese Oferta"));
+      }
+    } else {
+      console.log(`No existe caballo con Nombre ${name}`);
+    }
+  }
+}
+
+
+function adminHorses() {
+  let auctionInstance = new auction("Remate");
+  let option = "";
+  let newHorse = ""; 
+  let name = "";
+  let birthDate = "";
+  let father = "";
+  let motherGrandfather = "";   
+  
+  do {
+      option = prompt(`Seleccione una opción:
+      1. Agregar Caballo.
+      2. Listar Caballos.
+      3. Ver datos de un caballo.
+      4. Eliminar caballo.
+      5. Modificar caballo.
+      6. Ofertar
+      7. Salir`);
+      switch (option) {
+          case "1":
+              name = prompt("Ingrese su nombre");
+              birthDate = prompt("Ingrese su fecha de nacimiento (dd-mm-yyyy)");
+              father = prompt("Ingrese padre");
+              motherGrandfather = prompt("Ingrese abuelo materno");
+              newHorse = new horse(name, birthDate, father, motherGrandfather);
+              auctionInstance.addHorse(newHorse);
+              break;         
+          case "2":
+              alert(auctionInstance.checkHorses());
+              break;
+          case "3":
+              name = (prompt("Ingrese el nombre del caballo"));
+              alert(auctionInstance.checkHorsebyname(name));
+              break;
+          case "4":
+              name = (prompt("Ingrese el nombre del caballo a eliminar"));
+              auctionInstance.deleteHorse(name);
+              break;
+          case "5":
+              name = (prompt("Ingrese el nombre del caballo a modificar"));
+              newName = (prompt("Ingrese nuevo nombre del caballo"));
+              birthDate = (prompt("Igrese la nueva fecha de nacimiento dd-mm-yyyy "));
+              father = prompt("Ingrese nuevo padre");
+              motherGrandfather = prompt("Ingrese nuevo abuelo materno");
+              auctionInstance.modifyHorse(name, birthDate, father, motherGrandfather);
+              break;
+          case "6":                
+              name = prompt("Ingrese el nombre del caballo para realizar la oferta");
+              alert(`La oferta actual es de: $ ${initialOffer}`);
+              offer = prompt("Ingrese la oferta");
+              auctionInstance.offerForHorse(name, offer);
+              break;
+             
+          case "7":
+              break;
+          default:
+              alert("Opción inválida");
+              break;
+      }
+  } while (option !== "7");
+}
+
+adminHorses(); 
