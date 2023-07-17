@@ -1,0 +1,139 @@
+.container-fluid{
+    height: 150px;
+    background-color: rgb(162, 162, 162);
+    padding: -30px;
+    
+}
+.navbar_logo{
+    width: 175px; 
+    margin-left: 25px;
+}
+#navbarNav{
+    margin-left: 300px;
+    margin-right:50px;
+    
+}
+.navbar-nav{    
+    margin-top: 25px;
+}
+.nav-link{    
+    margin: 35px;
+    font-size: 25px;
+    color: white;    
+}
+.navbar_login{    
+    display: flex;
+    flex-direction: column;
+    height: 80px; 
+    width: 70px; 
+    margin-bottom: 30px;    
+    margin-left: 20px;
+}
+.navbar_login_photo{
+   width: 50px; 
+   margin-left: 10.5px;  
+}
+.navbar_login_p{
+    font-size: 25px;
+    color: white;
+    margin-bottom: 24px; 
+    text-decoration: none;    
+}
+.navbar_login_p:hover{
+    color: black;
+}
+.body_horse1{
+    background-color: rgb(162, 162, 162);
+    padding: 50px;
+    margin: 50px; 
+    border-radius: 15px;  
+    display: flex; 
+   
+}
+.horse_info{
+    
+    margin-right: 700px;    
+    display: flex;
+    justify-content: space-between; 
+    width: 400px;
+}  
+.horse_info h3{
+    font-size: 20px;    
+}
+.horse_png{
+   width: 15px;
+   height: 16px;
+   margin-top: 4px;
+}
+.horse_auction_section{
+    display: flex;
+}
+.body_horse1_box1{
+    
+    width: 900px;
+}
+#carouselExample{    
+  display: flex;
+  margin-right:100px;  
+  margin-left: 0px; 
+  width: 900px;
+}
+.horse_description{
+    display: block;   
+    margin-left: 15px;    
+}
+.png_haras{
+    width: 165px;
+    margin-left: 250px;
+}
+.horse_offer{
+    border: 1px solid black;
+    border-radius:15px ;
+    padding: 5px;
+    padding-bottom: 465px;
+    margin-top: 0px;
+}
+.horse_offer h3{
+   
+    margin-left: 17px;
+}
+.horse_btn1{
+    margin-top: 15px;
+    padding-left: 50PX;
+    padding-right: 50px;
+    margin-left: 18px;
+    border-radius: 5px;
+    background-color: rgb(71, 136, 113);
+
+}
+.horse_btn2{
+    margin-top: 15px;
+    padding-left: 50PX;
+    padding-right: 50px;
+    border-radius: 5px;
+    background-color: rgb(71, 136, 113);   
+
+}
+.offer_form{
+    display: flex;
+    
+}
+.offer_input{
+    margin-top: 15px;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 18px;
+    border-radius: 5px;
+
+}
+.horse_btn3{    
+    margin-top: 15px;
+    margin-left: 2px;
+    padding-left: 50PX;
+    padding-right: 50px;
+    border-radius: 5px;
+    background-color: rgb(136, 70, 70);
+
+}

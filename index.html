@@ -4,10 +4,86 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>HORSE AUCTION </title>
 </head>
 <body>
-    <h1>Actividad1</h1>
-   <script src="main.js"></script> 
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img class="navbar_logo" src="/images/logo_png.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Next Auctions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Contact</a>
+            </li>            
+         </ul>
+           <div class="navbar_login">
+            <a href=""><img class="navbar_login_photo" src="/images/photo_png.png" alt="login photo"></a>
+            <a class="navbar_login_p" href="">Log In</a>
+           </div>  
+        </div>
+     </div>
+   </nav>
+   <div class="body_horse1">
+    <div class="body_horse1_box1">
+      <h1 class="horse_name">Pegasus Amore Mio</h1>
+      <div class="horse_info">
+        <img src="/png/png_list.png" class="horse_png" alt="list png">
+        <h3 class="horse_sex">Hembra</h3>
+        <img src="/png/png_calendario.png" class="horse_png" alt="">
+        <h3 class="horse_birth">11/2020</h3>
+        <img src="/png/png_location.png" class="horse_png" alt="">
+        <h3 class="horse_location">Cordoba, Argentina</h3>
+      </div>
+      <div id="carouselExample" class="carousel slide">
+         <div class="carousel-inner">
+           <div class="carousel-item active">
+             <img src="/images/horse1.jpg" class="d-block w-100" alt="horse jumping">
+           </div>
+           <div class="carousel-item">
+             <img src="/images/horse1_1.jpg" class="d-block w-100" alt="horse">
+           </div>
+           <div class="carousel-item">
+             <img src="/images/horse1_2.jpg" class="d-block w-100" alt="horse">
+           </div>
+         </div>
+         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+         </button>
+         <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+         </button>
+      </div>
+    </div>
+    <div class="horse_description">
+      <img src="/images/logo_harasdoncandido_png.png" alt="haras don candido" class="png_haras">
+      <div class="horse_offer">              
+        <h3>OFERTAR POR ESTE CABALLO</h3>
+        <button class="horse_btn1">-</button>
+        <button class="horse_btn2">+</button> 
+        <form action="" class="offer_form">       
+          <input type="text" id="result" readonly class="offer_input">
+          <button class="horse_btn3">OFERTAR</button>
+        </form>
+      </div>
+    </div>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+   <script src="/main.js"></script> 
 </body>
 </html>
