@@ -185,48 +185,48 @@ adminHorses(); */
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Get elements
+  
   const addButton = document.querySelector('.horse_btn2');
   const subtractButton = document.querySelector('.horse_btn1');
   const submitButton = document.querySelector('.horse_btn3');
   const resultInput = document.getElementById('result');
   const offerForm = document.querySelector('.offer_form');
 
-  // Retrieve the result from local storage
+  
   let result = localStorage.getItem('result');
   result = result ? JSON.parse(result) : 3000;
 
-  // Function to update the result display
+ 
   function updateResult() {
     resultInput.value = result;
   }
 
-  // Initialize the result display
+  
   updateResult();
 
-  // Track submission status and previous offer
+  
   let submitted = false;
   let previousOffer = result;
 
-  // Function to handle form submission
+  
   function submitOffer() {
     previousOffer = result;
     subtractButton.disabled = true;
     submitButton.disabled = true;
     submitted = true;
 
-    // Store the result in local storage as JSON
+    
     localStorage.setItem('result', JSON.stringify(result));
   }
 
-  // Function to enable buttons if the result is higher than the previous offer
+  
   function enableButtons() {
     subtractButton.disabled = false;
     submitButton.disabled = result <= previousOffer;
     submitted = false;
   }
 
-  // Add event listeners to buttons
+ 
   addButton.addEventListener('click', () => {
     if (!submitted) {
       result += 500;
